@@ -59,3 +59,12 @@ CREATE TABLE IF NOT EXISTS dim_shop(
 );
 INSERT INTO dim_shop(shop_id, shop_name, geographical_id) VALUES
 (100, 'Shop Paris 15', 2);
+
+CREATE TABLE IF NOT EXISTS fact_stock (
+    stock_id SERIAL PRIMARY KEY,                     
+    sku_bc VARCHAR(255) REFERENCES dim_product(sku_bc),
+    shop_id INT REFERENCES dim_shop(shop_id),
+    date_ DATE REFERENCES dim_date(date_),
+    stock_quantity INT,                           
+    valuation DECIMAL(15, 2)                      
+);
