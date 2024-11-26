@@ -29,8 +29,7 @@ CREATE TABLE IF NOT EXISTS dim_product(
 );
 
 CREATE TABLE IF NOT EXISTS dim_date(
-    date_id SERIAL PRIMARY KEY,
-    date_ DATE,
+    date_ DATE PRIMARY KEY,
     day_of_month INT,
     day_of_year INT,
     weekday_name VARCHAR(50),
