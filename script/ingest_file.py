@@ -167,7 +167,10 @@ for raw_file_path in raw_files_paths :
     # Data transform
     df.rename(columns= {df.columns[-2] : 'Stock', df.columns[-1] : 'Value'}, inplace=True)
     df.rename(columns= {column : column.lower() for column in df.columns}, inplace=True)
+    
     df['sku bc'] = df['sku bc'].apply(lambda x : str(x).zfill(10))
+    df['stock'] = df['stock'].fillna(0)
+    df['value'] = df['value'].fillna(0)
     
     columns = ['sku bc', 'sku cap', 'libellé article', 'niv 1', 'libellé niveau 1', 'niv 2', 'libellé niveau 2', 'niv 3', 'libellé niveau 3', 'statut article', 'libellé statut article', 'stock', 'value']
     validate_columns(df, columns)
