@@ -1,5 +1,5 @@
 true_init.sql
-data/*
+data/
 *.ipynb
 # Byte-compiled / optimized / DLL files
 __pycache__/
